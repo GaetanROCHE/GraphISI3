@@ -14,12 +14,15 @@ import java.util.Iterator;
  */
 public class DFSIterator implements Iterator{
 
+    private ArrayList<Node> covered;
     private ArrayList<Node> nodes;
     private IGraph graph;
     
     public DFSIterator(Node node, IGraph graph){
         nodes = new ArrayList<>();
         nodes.add(node);
+        covered = new ArrayList<>();
+        covered.add(node);
         this.graph = graph;
     }
     
@@ -31,8 +34,12 @@ public class DFSIterator implements Iterator{
     @Override
     public Object next() {
         Node next = nodes.remove(nodes.size()-1);
-        for(Node n : graph.getAdjNodes(next))
-            nodes.add(n);
+        for(Node n : graph.getAdjNodes(next)){
+            if(!covered.contains(n)){
+                nodes.add(n);
+                covered.add(n);
+            }
+        }
         return next;        
     }
     

@@ -19,7 +19,6 @@ public class Node {
      * nombre total d'instances de Noeud
      */
     private static int nombreOfNoeud = 0;
-    
     /**
      * Construit un noeud avec une etiquette
      * @param _label etiquette du noeud
@@ -48,27 +47,27 @@ public class Node {
 
     
     
-	@Override
-	public String toString() {
-		return ""+label;
-	}
+    @Override
+    public String toString() {
+            return ""+label;
+    }
 
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Node other = (Node) obj;
-		if (uniqueID != other.uniqueID)
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+            if (this == obj)
+                    return true;
+            if (obj == null)
+                    return false;
+            if (getClass() != obj.getClass())
+                    return false;
+            Node other = (Node) obj;
+            if (uniqueID != other.uniqueID)
+                    return false;
+            return true;
+    }
 
-    
+
    
 }
 
